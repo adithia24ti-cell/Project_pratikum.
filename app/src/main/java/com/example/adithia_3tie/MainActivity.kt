@@ -51,6 +51,13 @@ class MainActivity : AppCompatActivity() {
                 .setTitle("Konfirmasi Logout")
                 .setMessage("Apakah Anda yakin ingin keluar?")
                 .setPositiveButton("Ya") { _, _ ->
+                    // 1. Hapus session di SharedPreferences agar isLogin tidak lagi true
+                    val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+                    val editor = sharedPref.edit()
+                    editor.clear() // Menghapus seluruh data preference (isLogin & username)
+                    editor.apply()
+
+                    // 2. Pindah kembali ke AuthActivity
                     val intent = Intent(this, AuthActivity::class.java)
                     startActivity(intent)
                     finish()
