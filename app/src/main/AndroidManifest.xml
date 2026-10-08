@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Langkah 1: Izin akses internet -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -14,17 +13,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rizky3TIB">
 
-        <!-- AuthActivity (Halaman Utama / LAUNCHER) -->
+        <!-- SplashScreenActivity (LAUNCHER / Halaman Pertama) -->
         <activity
-            android:name=".Pertemuan6.AuthActivity"
+            android:name=".Pertemuan6.SplashScreenActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- AuthActivity -->
+        <activity
+            android:name=".Pertemuan6.AuthActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
 
         <!-- MainActivity -->
         <activity

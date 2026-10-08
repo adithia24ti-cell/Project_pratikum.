@@ -24,19 +24,8 @@ class AuthActivity : AppCompatActivity() {
             insets
         }
 
-        // =========================================================
-        // 1. INSIALISASI SHAREDPREFERENCES & PENGECEKAN STATUS LOGIN
-        // =========================================================
-        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE) //
-        val isLogin = sharedPref.getBoolean("isLogin", false) //[cite: 18]
-
-        // Jika user sudah login sebelumnya, langsung arahkan ke MainActivity
-        if (isLogin) { //[cite: 17, 18]
-            val intent = Intent(this, MainActivity::class.java) //[cite: 18]
-            startActivity(intent) //[cite: 18]
-            finish()
-            return
-        }
+        // 1. Inisialisasi SharedPreferences
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
         // 2. Inisialisasi Komponen Layout
         val etUsername = findViewById<EditText>(R.id.etUsername)
@@ -44,7 +33,7 @@ class AuthActivity : AppCompatActivity() {
         val btnLogin = findViewById<Button>(R.id.btnLogin)
 
         // 3. Action Listener untuk Tombol Login
-        btnLogin.setOnClickListener { //[cite: 18]
+        btnLogin.setOnClickListener {
             val username = etUsername.text.toString().trim()
             val password = etPassword.text.toString().trim()
 
@@ -54,10 +43,10 @@ class AuthActivity : AppCompatActivity() {
                 // =========================================================
                 // SIMPAN STATUS LOGIN KE SHAREDPREFERENCES
                 // =========================================================
-                val editor = sharedPref.edit() //[cite: 16, 19]
-                editor.putBoolean("isLogin", true) //[cite: 16, 17, 19]
-                editor.putString("username", username) //[cite: 16, 19]
-                editor.apply() //
+                val editor = sharedPref.edit()
+                editor.putBoolean("isLogin", true)
+                editor.putString("username", username)
+                editor.apply()
 
                 // Pindah ke MainActivity
                 val intent = Intent(this, MainActivity::class.java)
