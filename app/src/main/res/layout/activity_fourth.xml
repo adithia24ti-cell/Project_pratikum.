@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pertemuan_4.FourthActivity">
+    tools:context=".pertemuan4.FourthActivity">
 
     <!-- MaterialCardView diperbesar (lebar 280dp, padding 24dp) -->
     <com.google.android.material.card.MaterialCardView

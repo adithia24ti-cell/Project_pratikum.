@@ -1,4 +1,4 @@
-package com.example.adithia_3tie
+package com.example.adithia_3tie.Pertemuan3
 
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.adithia_3tie.R
 import com.example.adithia_3tie.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {

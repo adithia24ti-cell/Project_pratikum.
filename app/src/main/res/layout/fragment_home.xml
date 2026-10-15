@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Welcome!"
+        android:textColor="#212121"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        android:text="Silahkan pilih..."
+        android:textColor="#757575"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btnPertemuan2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#5C4DB1"
+        android:text="Pertemuan 2"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnPertemuan3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#000000"
+        android:text="Pertemuan 3"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnPertemuan4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#757575"
+        android:text="Pertemuan 4"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnPertemuan5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="#2196F3"
+        android:text="Pertemuan 5"
+        android:textAllCaps="false" />
+
+    <Button
+        android:id="@+id/btnPertemuan6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00A859"
+        android:text="Pertemuan 6"
+        android:textAllCaps="false" />
+
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.adithia_3tie.pertemuan_4
+package com.example.adithia_3tie.pertemuan4
 
 import android.os.Bundle
 import android.util.Log

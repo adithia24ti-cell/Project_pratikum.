@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Rizky3TIB">
 
-        <!-- SplashScreenActivity (LAUNCHER / Halaman Pertama) -->
+        <!-- SplashScreenActivity (Dibuat LAUNCHER / Halaman Pertama Buka App) -->
         <activity
             android:name=".Pertemuan6.SplashScreenActivity"
             android:exported="true"
@@ -24,27 +24,33 @@
             </intent-filter>
         </activity>
 
-        <!-- AuthActivity -->
+        <!-- AuthActivity (Halaman Login) -->
         <activity
             android:name=".Pertemuan6.AuthActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- BaseActivity (Halaman Home Setelah Login) -->
+        <activity
+            android:name=".BaseActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+
         <!-- MainActivity -->
         <activity
-            android:name=".MainActivity"
+            android:name=".Pertemuan2.MainActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
         <!-- LoginActivity -->
         <activity
-            android:name=".LoginActivity"
+            android:name=".Pertemuan3.LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
         <!-- FourthActivity -->
         <activity
-            android:name=".pertemuan_4.FourthActivity"
+            android:name=".pertemuan4.FourthActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
@@ -60,6 +66,11 @@
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
 
+        <!-- SeventhActivity -->
+        <activity
+            android:name=".Pertemuan7.SeventhActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

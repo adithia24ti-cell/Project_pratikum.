@@ -1,4 +1,4 @@
-package com.example.adithia_3tie
+package com.example.adithia_3tie.Pertemuan2
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.adithia_3tie.Pertemuan5.FifthActivity
 import com.example.adithia_3tie.Pertemuan6.AuthActivity
-import com.example.adithia_3tie.pertemuan_4.FourthActivity
+import com.example.adithia_3tie.Pertemuan7.SeventhActivity
+import com.example.adithia_3tie.R
+import com.example.adithia_3tie.pertemuan4.FourthActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +43,13 @@ class MainActivity : AppCompatActivity() {
         val btnToFifth = findViewById<Button>(R.id.btnToFifth)
         btnToFifth.setOnClickListener {
             val intent = Intent(this, FifthActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Tombol Pertemuan 7 (Pindah ke SeventhActivity)
+        val btnPertemuan7 = findViewById<Button>(R.id.btnPertemuan7)
+        btnPertemuan7.setOnClickListener {
+            val intent = Intent(this, SeventhActivity::class.java)
             startActivity(intent)
         }
 

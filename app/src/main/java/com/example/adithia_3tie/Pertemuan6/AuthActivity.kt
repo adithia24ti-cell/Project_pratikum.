@@ -9,7 +9,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.adithia_3tie.MainActivity
+import com.example.adithia_3tie.BaseActivity
 import com.example.adithia_3tie.R
 
 class AuthActivity : AppCompatActivity() {
@@ -24,36 +24,28 @@ class AuthActivity : AppCompatActivity() {
             insets
         }
 
-        // 1. Inisialisasi SharedPreferences
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
 
-        // 2. Inisialisasi Komponen Layout
         val etUsername = findViewById<EditText>(R.id.etUsername)
         val etPassword = findViewById<EditText>(R.id.etPassword)
         val btnLogin = findViewById<Button>(R.id.btnLogin)
 
-        // 3. Action Listener untuk Tombol Login
         btnLogin.setOnClickListener {
             val username = etUsername.text.toString().trim()
             val password = etPassword.text.toString().trim()
 
-            // Cek apakah username = password dan tidak kosong
             if (username.isNotEmpty() && username == password) {
 
-                // =========================================================
-                // SIMPAN STATUS LOGIN KE SHAREDPREFERENCES
-                // =========================================================
                 val editor = sharedPref.edit()
                 editor.putBoolean("isLogin", true)
                 editor.putString("username", username)
                 editor.apply()
 
-                // Pindah ke MainActivity
-                val intent = Intent(this, MainActivity::class.java)
+                // PINDAH KE BASEACTIVITY (HOME)
+                val intent = Intent(this, BaseActivity::class.java)
                 startActivity(intent)
                 finish()
             } else {
-                // Tampilkan AlertDialog jika gagal
                 AlertDialog.Builder(this)
                     .setTitle("Login Gagal")
                     .setMessage("Silahkan coba lagi")
