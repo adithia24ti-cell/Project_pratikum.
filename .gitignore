@@ -11,6 +11,7 @@
 /build
 /captures
 /modul
+*.pdfs
 .externalNativeBuild
 .cxx
 local.properties
