@@ -1,0 +1,60 @@
+package com.example.adithia_3tie.Home.pertemuan_6
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
+import com.example.adithia_3tie.BaseActivity
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.adithia_3tie.databinding.ActivityAuthBinding
+
+class AuthActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityAuthBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        binding = ActivityAuthBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        // SharedPreferences untuk menyimpan status login
+        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
+
+        binding.btnLogin.setOnClickListener {
+            val username = binding.etUsername.text.toString().trim()
+            val password = binding.etPassword.text.toString().trim()
+
+            // Jika Username = Password, berpindah ke BaseActivity
+            if (username.isNotEmpty() && username == password) {
+
+                // Set isLogin menjadi true dan simpan username
+                val editor = sharedPref.edit()
+                editor.putBoolean("isLogin", true)
+                editor.putString("username", username)
+                editor.apply()
+
+                val intent = Intent(this, BaseActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                // Jika tidak, tampilkan AlertDialog "Silahkan coba lagi"
+                AlertDialog.Builder(this)
+                    .setTitle("Login Gagal")
+                    .setMessage("Silahkan coba lagi")
+                    .setPositiveButton("OK") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+        }
+    }
+}
