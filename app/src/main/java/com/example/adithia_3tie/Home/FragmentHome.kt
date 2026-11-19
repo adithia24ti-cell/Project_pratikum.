@@ -7,10 +7,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.adithia_3tie.Data.Api.CatFactApiClient
+import com.example.adithia_3tie.Data.Api.PhotoApiClient
 import com.example.adithia_3tie.Home.pertemuan11.ElevenActivity
 import com.example.adithia_3tie.Home.pertemuan_10.TenthActivity
 import com.example.adithia_3tie.Home.pertemuan_2.SecondActivity
@@ -21,7 +27,9 @@ import com.example.adithia_3tie.Home.pertemuan_6.AuthActivity
 import com.example.adithia_3tie.Home.pertemuan_6.SixthActivity
 import com.example.adithia_3tie.Home.pertemuan_7.SeventhActivity
 import com.example.adithia_3tie.Home.pertemuan_9.NinthActivity
+import com.example.adithia_3tie.Home.photo.PhotoAdapter
 import com.example.adithia_3tie.databinding.FragmentHomeBinding
+import kotlinx.coroutines.launch
 
 class FragmentHome : Fragment() {
 
@@ -93,6 +101,17 @@ class FragmentHome : Fragment() {
             startActivity(Intent(requireContext(), ElevenActivity::class.java))
         }
 
+        // Pertemuan 12: Cat Fact API
+        loadCatFact()
+
+        binding.btnRefresh.setOnClickListener {
+            binding.tvCatFact.text = "Loading cat fact..."
+            loadCatFact()
+        }
+
+        // Pertemuan 12: Photo Gallery API
+        loadPhoto()
+
         // Logout
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(requireContext())
@@ -111,6 +130,39 @@ class FragmentHome : Fragment() {
                     dialog.dismiss()
                 }
                 .show()
+        }
+    }
+
+    private fun loadCatFact() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val response = CatFactApiClient.apiService.getCatFact()
+                binding.tvCatFact.text = "\"${response.fact}\""
+            } catch (e: Exception) {
+                binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+            }
+        }
+    }
+
+    private fun loadPhoto() {
+        viewLifecycleOwner.lifecycleScope.launch {
+            try {
+                val photos = PhotoApiClient.apiService.getPhotos()
+                val adapter = PhotoAdapter(photos)
+                binding.rvGallery.adapter = adapter
+
+                /** List Tampil Vertical */
+                // binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+
+                /** List Tampil Horizontal */
+                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+                /** List Tampil Grid */
+                // binding.rvGallery.layoutManager = GridLayoutManager(requireContext(), 2)
+
+            } catch (e: Exception) {
+                Toast.makeText(requireContext(), "Gagal memuat gambar", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

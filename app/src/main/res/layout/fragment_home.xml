@@ -29,28 +29,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@android:color/white" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Welcome"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/background_header" />
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/background_header">
 
-        <!-- List Button Pertemuan -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,73 +44,145 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <Button
-                android:id="@+id/btnToSecond"
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pertemuan 2" />
+                android:text="Welcome!"
+                android:textSize="26sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="16dp"
+                android:text="Silahkan pilih.."
+                android:textSize="14sp" />
+
+            <!-- GridLayout 2 Kolom seperti di modul -->
+            <GridLayout
+                android:id="@+id/grid_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2">
+
+                <Button
+                    android:id="@+id/btnToSecond"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="Pertemuan 2" />
+
+                <Button
+                    android:id="@+id/btnToThird"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:backgroundTint="#000000"
+                    android:text="Pertemuan 3" />
+
+                <Button
+                    android:id="@+id/btnToFourth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:backgroundTint="#37474F"
+                    android:text="Pertemuan 4" />
+
+                <Button
+                    android:id="@+id/btnToFifth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:backgroundTint="#2979FF"
+                    android:text="Pertemuan 5" />
+
+                <Button
+                    android:id="@+id/btnToSixth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:backgroundTint="#00A859"
+                    android:text="Pertemuan 6" />
+
+                <Button
+                    android:id="@+id/btnToSeventh"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:backgroundTint="#00A859"
+                    android:text="Pertemuan 7" />
+
+                <Button
+                    android:id="@+id/btnToNinth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:text="Pertemuan 9" />
+
+                <Button
+                    android:id="@+id/btnToTenth"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:backgroundTint="#37474F"
+                    android:text="Pertemuan 10" />
+
+                <Button
+                    android:id="@+id/btnToEleven"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnSpan="2"
+                    android:layout_columnWeight="1"
+                    android:layout_margin="4dp"
+                    android:backgroundTint="#2979FF"
+                    android:text="Pertemuan 11" />
+
+            </GridLayout>
+
+            <!-- Pertemuan 12: Cat Fact API -->
+            <TextView
+                android:id="@+id/tvCatFact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="Loading cat fact..."
+                android:textAlignment="center"
+                android:textSize="18sp" />
 
             <Button
-                android:id="@+id/btnToThird"
+                android:id="@+id/btnRefresh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Pertemuan 3" />
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp"
+                android:text="Refresh" />
 
-            <Button
-                android:id="@+id/btnToFourth"
-                android:layout_width="wrap_content"
+            <!-- Pertemuan 12: Gallery Photo API -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGallery"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Pertemuan 4" />
-
-            <Button
-                android:id="@+id/btnToFifth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Pertemuan 5" />
-
-            <Button
-                android:id="@+id/btnToSixth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Pertemuan 6" />
-
-            <Button
-                android:id="@+id/btnToSeventh"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Pertemuan 7" />
-
-            <Button
-                android:id="@+id/btnToNinth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Pertemuan 9" />
-
-            <Button
-                android:id="@+id/btnToTenth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Pertemuan 10" />
-
-            <Button
-                android:id="@+id/btnToEleven"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Pertemuan 11" />
+                android:nestedScrollingEnabled="false"
+                android:padding="4dp" />
 
             <Button
                 android:id="@+id/btnLogout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:backgroundTint="@color/design_default_color_error"
                 android:text="Logout" />
 
