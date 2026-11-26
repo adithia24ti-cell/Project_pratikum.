@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.adithia_3tie.Home.FragmentHome
 import com.example.adithia_3tie.Message.FragmentMessage
 import com.example.adithia_3tie.More.FragmentMore
+import com.example.adithia_3tie.Note.NoteFragment
 import com.example.adithia_3tie.databinding.ActivityBaseBinding
 
 class BaseActivity : AppCompatActivity() {
@@ -41,6 +42,10 @@ class BaseActivity : AppCompatActivity() {
                 }
                 R.id.message -> {
                     replaceFragment(FragmentMessage())
+                    true
+                }
+                R.id.note -> {
+                    replaceFragment(NoteFragment())
                     true
                 }
                 R.id.more -> {
